@@ -22,12 +22,21 @@ $(document).ready(function() {
 
     // make a dancer with a random position
 
-    var dancer = dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 1000
-    );
+    // var dancer = dancerMakerFunction(
+    //   $("body").height() * Math.random(),
+    //   $("body").width() * Math.random(),
+    //   Math.random() * 1000
+    // );
+
+     // var time = Math.floor(Math.random() * (2000 - 1000)) + 1000;
+
+
+    var dancer = new makeBlinkyDancer( $("body").height() * Math.random(), 
+                                   $("body").width() * Math.random(), 
+                                   Math.random() * 1000 );
+
     $('body').append(dancer.$node);
+
   });
 });
 
