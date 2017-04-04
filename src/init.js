@@ -1,6 +1,9 @@
 $(document).ready(function() {
   window.dancers = [];
 
+  // index for dancer pos
+  var depthIndex = 0; 
+
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -21,12 +24,33 @@ $(document).ready(function() {
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
+    var pageHeight = $("body").height() - 400;
+    var danceFloorHeight = $("#danceFloor").height();
+    var pageWidth = ( $("body").width() ) - 200;
 
-    var dancer = new dancerMakerFunction( $("body").height() * Math.random(), 
-                                   $("body").width() * Math.random(), 
-                                   Math.random() * 1000 );
+    // alert( "page "+pageHeight +"floor "+ danceFloorHeight +"width "+ pageWidth );
+
+    //  Math.floor(Math.random() * (max - min + 1)) + min;
+    var top = limitedTop();
+    var left = limitedLeft();
+    var time = Math.random() * 1000;
+
+    var dancer = new dancerMakerFunction( top, left, time);
+
+    // scale dancer based on top
+    // ( call this on each when lining up or changing position )
+    scaleDancer(dancer, top);
+    
+
     window.dancers.push(dancer); // Push each dancer to global array
     
+    console.log("POSITION: "+top);
+
+    
+
+    // modify dancer z-indexes for depth illusion
+    
+    adjustDancersZindex(dancer, top);
 
     $('body').append(dancer.$node);
 
@@ -41,7 +65,85 @@ $(document).ready(function() {
     // console.log(dancerMakerFunctionName, "on the floor!")
   });
 
+  function scaleDancer(dancer,top){
+
+    /*
+            min top of 300, sets a min scale of scale of .7, 
+              adjust top to 340!
+
+            max top of 500, sets a max scale of 1, 
+    */
+
+    console.log("scaling:",dancer,top)
+    var maxTop = 500;
+    var scale = 1 - ( (maxTop - top)/500 );
+
+    $(dancer['$node']).css('transform', 'scale('+scale+')');
+
+    console.log("SCALING to ", $(dancer['$node']).css('transform') );
+  }
+
+
+
+  // adjust every dancer's z-index upon instantiation
+  function adjustDancersZindex(){
+      var dancers = window.dancers;
+      // always adjust our positions
+      dancers.sort(zort);
+      dancers.forEach(function(dancer,index){
+        $(dancer['$node']).css('z-index',0-index);
+      });
+  }
+
+  // greatest to smallest based on dancer.css.top
+  function zort(a, b) {
+    a = $(a['$node']).css('top');
+    b = $(b['$node']).css('top');
+
+    if ( a > b ) {
+      return -1;
+    }
+    if ( a < b ) {
+      return 1;
+    }
+    return 0;
+  }
+
+  // limit y position to stay within dance floor
+  function limitedTop(){
+    var pageHeight = $("body").height() - 400;
+    var danceFloorHeight = $("#danceFloor").height();
+    var pageWidth = ( $("body").width() ) - 200;
+    //  Math.floor(Math.random() * (max - min + 1)) + min;
+    var top = Math.floor( Math.random() * ( pageHeight - (pageHeight-danceFloorHeight+300) + (pageHeight-danceFloorHeight+300) ) );
+    if ( top <= 300 ){ top = 300; }
+    if ( top >= 490 ){ top = 490; }
+    return top;
+  }
+
+  // limit x position to stay within dancefloor
+  function limitedLeft(){
+
+    var pageWidth = $("#danceFloor").width();
+    //  Math.floor(Math.random() * (max - min + 1)) + min;
+    var left = Math.floor( Math.random() * ( pageWidth ) );
+
+    // var left = Math.floor( Math.random() * ( pageHeight - (pageHeight-danceFloorHeight+300) + (pageHeight-danceFloorHeight+300) ) );
+    if ( left <= 80 ){ left = 80; }
+    if ( left >= 1080 ){ left = 1080; }
+
+    console.log("left: "+left);
+    return left;
+  }
+
+
+  
+
   // Added this portion for lineUp effects -------------------------------
+
+  /*
+      have a limit to divide in lines after x amount of dancers
+  */
   $('.lineUp').on('click', function() {
     var carltonMove = 0;
     var blinkyMove = 800;
@@ -50,10 +152,7 @@ $(document).ready(function() {
     for (var idx = 0; idx < window.dancers.length; idx++) {
       var currentDancer = window.dancers[idx]['$node'];
       var constructorName = window.dancers[idx].constructor.name;
-      console.log(constructorName)
-      // console.log(window.dancers[idx]);
-      // console.log(constructorName);
-      // console.log(myInstance.constructor.name === "MyClass");
+
       if (constructorName === 'Carlton') {
         Carlton.prototype.lineUp.call(this, currentDancer, carltonMove);
         carltonMove += 75;

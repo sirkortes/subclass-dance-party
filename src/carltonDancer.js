@@ -37,7 +37,7 @@ var Carlton = function(top, left, timeBetweenSteps) {
   // Added this method for lineUp effects -------------------------------
   Carlton.prototype.lineUp = function(obj, move) {
     console.log(obj)
-    $(obj).animate( { top: 150, left: move } );
+    $(obj).animate( { top: 350, left: move } );
     // setInterval(function() {
     //   $(obj).animate( { zoom: '300%', top: 75}, "slow" );
     // }, 5000);
