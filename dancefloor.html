@@ -40,11 +40,12 @@
     <script>
 
       function carltonHover(carlton){
-        carlton = $(carlton).closest(".carlton")['$node'];
 
-        // $(dancer).css('outline','5px solid green');
+        var dancer = $(carlton).closest(".carlton")[0];
 
-        console.log( "hovering carlton",carlton );
+        // dow hatever you want with $(dancer)
+
+        console.log( "hovering carlton", dancer );
       }
 
     </script>

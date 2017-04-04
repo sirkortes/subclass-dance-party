@@ -61,13 +61,20 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+  pointer-events: none;
 }
 
 .targetArea{
   outline: 2px solid red;
     height: 100%;
     width: 50%;
-    transform: translate(150px, 450px);
+    transform: translate(150px, -50px);
+    pointer-events: all;
+}
+
+.dancer-image {
+  transform: translateY(-500px);
+  pointer-events: none;
 }
 
 .carlton {
@@ -77,6 +84,7 @@ body, a:link, a:visited, a:active{
 
   width: 400px;
   height: 400px;
+  pointer-events: none;
 }
 
 .addDancerButton {
