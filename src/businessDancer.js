@@ -2,26 +2,26 @@
 
 
 
-var Carlton = function(top, left, timeBetweenSteps) {
+var Business = function(top, left, timeBetweenSteps) {
 
   makeDancer.call( this, top, left, timeBetweenSteps);
   this.step(timeBetweenSteps);
 
-  var carlton = this.$node;
+  var business = this.$node;
 
-  carlton.addClass('carlton');
+  business.addClass('business');
 
   // get it's img tag, add data src prop to correct img url
 
-  var img = carlton.find('.dancer-image');
-  img.attr( 'src', "img/dance2.gif" );
+  var img = business.find('.dancer-image');
+  img.attr( 'src', "img/dance1.gif" );
 
 };
   
 
-  Carlton.prototype = Object.create(makeDancer.prototype);
-  Carlton.prototype.constructor = Carlton;
-  Carlton.prototype.step = function(time) {
+  Business.prototype = Object.create(makeDancer.prototype);
+  Business.prototype.constructor = Business;
+  Business.prototype.step = function(time) {
 
     // makeDancer.prototype.step.call(this, time);
 
@@ -34,12 +34,12 @@ var Carlton = function(top, left, timeBetweenSteps) {
     // this is where it toggled / action
   };
 
-  // Carlton.prototype.lineUp = function(top, left) {
+  // Business.prototype.lineUp = function(top, left) {
   //   console.log(top, left);
   // }
 
   // Added this method for lineUp effects -------------------------------
-  Carlton.prototype.lineUp = function(obj, move) {
+  Business.prototype.lineUp = function(obj, move) {
     console.log(obj)
     $(obj).animate( { top: 450, left: move } );
     // setInterval(function() {

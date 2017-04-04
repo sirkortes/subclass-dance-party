@@ -73,20 +73,26 @@ body, a:link, a:visited, a:active{
 }
 
 .dancer-image {
-  transform: translateY(-500px);
+  /*transform: translateY(-500px);*/
   pointer-events: none;
 }
 
 .carlton {
   border:0;
   border-radius:0px;
-  position:absolute;
+  /*position:absolute;
 
   width: 400px;
-  height: 400px;
+  height: 400px;*/
   pointer-events: none;
 }
 
 .addDancerButton {
   margin: 10px;
+}
+
+.business {
+  border:0;
+  border-radius:0px;
+  position:absolute;
 }

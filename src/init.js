@@ -115,9 +115,14 @@ $(document).ready(function() {
     var danceFloorHeight = $("#danceFloor").height();
     var pageWidth = ( $("body").width() ) - 200;
     //  Math.floor(Math.random() * (max - min + 1)) + min;
-    var top = Math.floor( Math.random() * ( pageHeight - (pageHeight-danceFloorHeight+300) + (pageHeight-danceFloorHeight+300) ) );
-    if ( top <= 300 ){ top = 300; }
-    if ( top >= 490 ){ top = 490; }
+    var maxH = pageHeight;
+    var minH = pageHeight - danceFloorHeight;
+    // var top = Math.random() * Math.floor( Math.random() * ( pageHeight - (pageHeight-danceFloorHeight+300) + (pageHeight-danceFloorHeight+300) ) );
+    var top = Math.floor(Math.random() * (maxH - minH + 1)) + minH;
+
+    if ( top <= 400 ){ top = 400 ; } // Absolute min
+    if ( top >= 525 ){ top = 525  ; } // Absolute max
+
     return top;
   }
 
@@ -137,7 +142,7 @@ $(document).ready(function() {
   }
 
 
-  
+
 
   // Added this portion for lineUp effects -------------------------------
 
@@ -147,18 +152,22 @@ $(document).ready(function() {
   $('.lineUp').on('click', function() {
     var carltonMove = 0;
     var blinkyMove = 800;
+    var businessMove = 800;
 
     // Iterate through window.dancers array
     for (var idx = 0; idx < window.dancers.length; idx++) {
       var currentDancer = window.dancers[idx]['$node'];
       var constructorName = window.dancers[idx].constructor.name;
-
+      console.log('!!!!!!!', constructorName);
       if (constructorName === 'Carlton') {
         Carlton.prototype.lineUp.call(this, currentDancer, carltonMove);
         carltonMove += 75;
-      } else {
+      } else if (constructorName === 'makeDancer') {
         makeBlinkyDancer.prototype.lineUp.call(this, currentDancer, blinkyMove);
         blinkyMove += 75;
+      } else if (constructorName === 'Business') {
+        Business.prototype.lineUp.call(this, currentDancer, businessMove);
+        businessMove += 75;
       }
 
       
