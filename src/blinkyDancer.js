@@ -9,7 +9,7 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
 
   makeBlinkyDancer.prototype.step = function(time) {
-    console.log("start of blinky step")
+    // console.log("start of blinky step")
     // counter is here
 
     var context = this;
@@ -19,5 +19,12 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
     }, time)
 
     this.$node.toggle();
-    console.log("end of blinky step")
+    // console.log("end of blinky step")
+  };
+
+  makeBlinkyDancer.prototype.lineUp = function(obj, move) {
+    $(obj).animate( { top: 400, left: move } );
+    // var topPos = $(obj).css('top', 150);
+    // var leftPos = $(obj).css('left', move);
+    // console.log(topPos, leftPos);
   };
