@@ -6,11 +6,36 @@
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/carltonDancer.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
   </head>
   <body>
-    <div class="topbar">
-      <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>    </div>
+
+  <div id="topbar">
+
+    <div class="topbar-left">
+
+      <a href="#" class="button" data-dancer-maker-function-name="lineUp">Line Up</a>  
+
+    </div>
+
+    <span class="title">Object Dance Party</span>
+
+    <div class="topbar-right">
+
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">
+        Add a blinky dancer
+      </a>  
+
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="Carlton">
+        Summon Carlton
+      </a>   
+
+    </div>
+
+  </div>
+
+
     <script src="src/init.js"></script>
   </body>
 </html>

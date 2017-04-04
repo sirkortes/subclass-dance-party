@@ -3,25 +3,64 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  /*background-color:#444;*/
+  background: url(img/dancefloor.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   font-size: 18px;
+  font-family: 'Amatic SC', cursive;
+
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+
+.button{
   padding:5px 12px;
-  float:right;
+  /*float:right;*/
 }
-.topbar{
+
+#topbar{
+  width: 100%;
+  text-align: center;
   height:32px;
+  padding:15px 15px;
   background-color: #555;
 }
+
+.topbar-left{
+  float: left;
+  padding: 10px;
+  font-size: 1.5em;
+}
+
+.topbar-right{
+  float: right;
+  padding: 10px;
+  font-size: 1.5em;
+}
+
 .title{
-  background-color: #777;
+  /*background-color: #777;*/
+  font-size: 4em;
 }
 .dancer{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+
+.carlton {
+  border:0;
+  border-radius:0px;
+  position:absolute;
+
+  width: 400px;
+  height: 400px;
+}
+
+.addDancerButton {
+  margin: 10px;
 }

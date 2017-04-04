@@ -1,6 +1,6 @@
 var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
 
-  makeDancer.call( this, top, left, timeBetweenSteps);
+  makeDancer.call(this, top, left, timeBetweenSteps);
   this.step(timeBetweenSteps);
 };
   
@@ -9,16 +9,15 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
 
   makeBlinkyDancer.prototype.step = function(time) {
-
-    // makeDancer.prototype.step.call(this, time);
+    console.log("start of blinky step")
+    // counter is here
 
     var context = this;
-    // for timeout
+    
     setTimeout( function(){
-      console.log("Stepping?");
-      // makeDancer.prototype.step.bind(context, time);
       makeDancer.prototype.step.call(context, time);
     }, time)
 
     this.$node.toggle();
+    console.log("end of blinky step")
   };
