@@ -45,7 +45,7 @@ $(document).ready(function() {
 
     var dude = $(dancer['$node']);
 
-    dude.attr('id',children);
+    dude.children('.targetArea').attr('id',children);
 
     // scale dancer based on top
     // ( call this on each when lining up or changing position )
@@ -72,16 +72,16 @@ $(document).ready(function() {
     //   }, 2500); // End of zooming effects -------------------------------------
     // }, 3000)
     
-    // setInterval(function() {
+    setInterval(function() {
 
-    //   // setTimeout(function() {
-    //     $(dude).animate({ left: left-100 }, "slow" );
-    //   // }, 1000);
-    //   setTimeout(function() {
-    //     $(dude).animate({ left: left+100 }, "slow" );
-    //   }, 800); // End of zooming effects -------------------------------------
+      // setTimeout(function() {
+        $(dude).animate({ left: left-50 }, 550 );
+      // }, 1000);
+      setTimeout(function() {
+        $(dude).animate({ left: left+50 }, 550 );
+      }, 500); // End of zooming effects -------------------------------------
 
-    // }, 1800)
+    }, 1000)
 
     // console.log(dancerMakerFunctionName, "on the floor!")
     
@@ -95,11 +95,13 @@ $(this).on('mouseover', '.targetArea', function(event){
 
         var dancer = $(this).parent(".carlton")[0];
 
-        // console.log("event",event);
-        // console.log("this",this);
+        
+        console.log("event",event);
+        console.log("this",this);
         console.log("dancer",dancer);
-        // console.log(dancer);
-
+        // console.log( ($(dancer).css('top')+50) )+
+        
+        $(dancer).css('top', dancer.css('top')-100 );
     });
 
 
