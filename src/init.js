@@ -61,27 +61,20 @@ $(document).ready(function() {
 
     $('body').append(dancer.$node);
 
-    // Added this portion for zooming effects -------------------------------
 
-    // setInterval(function() {
-    //   setTimeout(function() {
-    //     $(dancer['$node']).animate( { zoom: '300%', top: 0, left: 0}, "slow" );
-    //   }, 2000);
-    //   setTimeout(function() {
-    //     $(dancer['$node']).animate( { zoom: '100%', top: 450, left: 0}, "slow" );
-    //   }, 2500); // End of zooming effects -------------------------------------
-    // }, 3000)
+
+    // COMENTED THE BELOW PART TO GET DANCERS TO LINE UP PROPERLY
     
-    setInterval(function() {
+    // setInterval(function() {
 
-      // setTimeout(function() {
-        $(dude).animate({ left: left-50 }, 550 );
-      // }, 1000);
-      setTimeout(function() {
-        $(dude).animate({ left: left+50 }, 550 );
-      }, 500); // End of zooming effects -------------------------------------
+    //   // setTimeout(function() {
+    //     $(dude).animate({ left: left-50 }, 550 );
+    //   // }, 1000);
+    //   setTimeout(function() {
+    //     $(dude).animate({ left: left+50 }, 550 );
+    //   }, 500); // End of zooming effects -------------------------------------
 
-    }, 1000)
+    // }, 1000)
 
     // console.log(dancerMakerFunctionName, "on the floor!")
     
@@ -196,7 +189,7 @@ $(this).on('mouseover', '.targetArea', function(event){
       have a limit to divide in lines after x amount of dancers
   */
   $('.lineUp').on('click', function() {
-    var carltonMove = 0;
+    var carltonMove = 200;
     var blinkyMove = 800;
     var businessMove = 800;
 

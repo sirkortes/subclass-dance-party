@@ -10,24 +10,60 @@ body{
   -o-background-size: cover;
   background-size: cover;
   font-size: 18px;
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Raleway', sans-serif;
+}
 
-}
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: whitesmoke;
+  text-decoration: none;
 }
+
+a:hover {
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+h1 {
+  font-family: 'Monoton', cursive;
+  font-size: 3em;
+  position: absolute;
+  right: 50px;
+  top: -20px;
+}
+
+.rainbow {
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 800;
+}
+
 ul {
   list-style-type: none;
 }
+
 li {
   float: left;
+  background: rgba(0, 0, 0, 0.2);
 }
+
 li a {
   display: inline-block;
+  text-decoration: none;
 }
-.button{
-  padding:5px 12px;
-  /*float:right;*/
+
+li a:hover {
+  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 800;
 }
 
 #topbar{
@@ -97,8 +133,9 @@ li a {
   /*pointer-events: none;*/
 }
 
-.addDancerButton {
-  margin: 10px;
+.addDancerButton,
+.button {
+  margin: 20px;
 }
 
 .business {
@@ -109,4 +146,11 @@ li a {
   width: 400px;
   height: 400px;
   pointer-events: none;
+}
+
+footer {
+  color: whitesmoke;
+  position: fixed;
+  bottom: 0;
+  left: 10px;
 }

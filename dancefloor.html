@@ -8,11 +8,38 @@
     <script src="src/blinkyDancer.js"></script>
     <script src="src/carltonDancer.js"></script>
     <script src="src/businessDancer.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Raleway" rel="stylesheet">
   </head>
   <body>
 
-  <div id="topbar">
+  <!-- Header section -->
+  <header>
+    <h1 class="rainbow">dance party!</h1>
+  </header>
+
+  <!-- Navbar section -->
+  <nav>
+    <ul>
+      <li><a href="#" class="button lineUp" data-dancer-maker-function-name="lineUp">Line Up</a></li>
+      <li><a href="#" class="addDancerButton" data-dancer-maker-function-name="Carlton">
+        Summon Carlton
+      </a></li>
+      <li><a href="#" class="addDancerButton" data-dancer-maker-function-name="Business">
+        Business Time!
+      </a></li>
+    </ul>
+  </nav>
+
+  <!-- Dancefloor section... for sizing purposes -->
+  <section id="danceFloor">
+  </section>
+
+  <!-- Footer section -->
+  <footer>
+    <h5>Created for Hack Reactor SF #75. For educational purposes only. By <a target="_blank" href="https://github.com/sirkortes">Kris Cortes</a> and <a target="_blank" href="https://github.com/JonEricEscobedo">Jon Eric Escobedo</a>.</h5>
+  </footer>
+
+  <!-- <div id="topbar">
 
 
     <div class="topbar-left">
@@ -23,9 +50,9 @@
 
     <div class="topbar-right">
       
-      <!-- <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">
         Add a blinky dancer
-      </a>  --> 
+      </a>  
 
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="Carlton">
         Summon Carlton
@@ -37,11 +64,11 @@
 
     </div>
 
-  </div>
+  </div> -->
 
-    <div id="danceFloor"></div>
+    
 
     <script src="src/init.js"></script>
-    
+
   </body>
 </html>
