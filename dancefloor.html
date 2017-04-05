@@ -14,6 +14,7 @@
 
   <div id="topbar">
 
+
     <div class="topbar-left">
       <a href="#" class="button lineUp" data-dancer-maker-function-name="lineUp">Line Up</a>  
     </div>
@@ -21,9 +22,10 @@
     <span class="title">Object Dance Party</span>
 
     <div class="topbar-right">
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">
+      
+      <!-- <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">
         Add a blinky dancer
-      </a>  
+      </a>  --> 
 
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="Carlton">
         Summon Carlton
@@ -37,23 +39,9 @@
 
   </div>
 
-  <div id="danceFloor">
-
-  </div>
-
+    <div id="danceFloor"></div>
 
     <script src="src/init.js"></script>
-    <script>
-
-      function carltonHover(carlton){
-
-        var dancer = $(carlton).closest(".carlton")[0];
-
-        // dow hatever you want with $(dancer)
-
-        console.log( "hovering carlton", dancer );
-      }
-
-    </script>
+    
   </body>
 </html>

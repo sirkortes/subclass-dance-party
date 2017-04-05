@@ -4,6 +4,8 @@ $(document).ready(function() {
   // index for dancer pos
   var depthIndex = 0; 
 
+  // to index each dancer
+  var children = 0;
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -36,6 +38,14 @@ $(document).ready(function() {
     var time = Math.random() * 1000;
 
     var dancer = new dancerMakerFunction( top, left, time);
+    // increase children var
+    children++;
+    
+
+
+    var dude = $(dancer['$node']);
+
+    dude.attr('id',children);
 
     // scale dancer based on top
     // ( call this on each when lining up or changing position )
@@ -44,26 +54,69 @@ $(document).ready(function() {
 
     window.dancers.push(dancer); // Push each dancer to global array
     
-    console.log("POSITION: "+top);
-
-    
-
+    // console.log("POSITION: "+top);
     // modify dancer z-indexes for depth illusion
     
     adjustDancersZindex(dancer, top);
 
     $('body').append(dancer.$node);
 
-    // // Added this portion for zooming effects -------------------------------
+    // Added this portion for zooming effects -------------------------------
+
     // setInterval(function() {
-    //   $(dancer['$node']).animate( { zoom: '300%', top: 0, left: 0}, "slow" );
-    // }, 20000);
-    // setInterval(function() {
-    //   $(dancer['$node']).animate( { zoom: '100%', top: 150, left: 0}, "slow" );
-    // }, 8000); // End of zooming effects -------------------------------------
+    //   setTimeout(function() {
+    //     $(dancer['$node']).animate( { zoom: '300%', top: 0, left: 0}, "slow" );
+    //   }, 2000);
+    //   setTimeout(function() {
+    //     $(dancer['$node']).animate( { zoom: '100%', top: 450, left: 0}, "slow" );
+    //   }, 2500); // End of zooming effects -------------------------------------
+    // }, 3000)
     
+    // setInterval(function() {
+
+    //   // setTimeout(function() {
+    //     $(dude).animate({ left: left-100 }, "slow" );
+    //   // }, 1000);
+    //   setTimeout(function() {
+    //     $(dude).animate({ left: left+100 }, "slow" );
+    //   }, 800); // End of zooming effects -------------------------------------
+
+    // }, 1800)
+
     // console.log(dancerMakerFunctionName, "on the floor!")
+    
+    
+
   });
+
+$(this).on('mouseover', '.targetArea', function(event){
+
+        // event.stopPropagation();
+
+        var dancer = $(this).parent(".carlton")[0];
+
+        // console.log("event",event);
+        // console.log("this",this);
+        console.log("dancer",dancer);
+        // console.log(dancer);
+
+    });
+
+
+// $(this).on('mouseenter', function(e){
+//   console.log("e:",e);
+// });
+  
+// // $(document).on(events, selector, data, handler)
+// $(document).on('hover', '.targetArea', function(event){
+//   alert("BOOYA");
+// });
+
+
+// $(this).on('mouseover', '.targetArea', function(event){
+
+
+  
 
   function scaleDancer(dancer,top){
 
@@ -74,16 +127,11 @@ $(document).ready(function() {
             max top of 500, sets a max scale of 1, 
     */
 
-    console.log("scaling:",dancer,top)
     var maxTop = 500;
     var scale = 1 - ( (maxTop - top)/500 );
-
     $(dancer['$node']).css('transform', 'scale('+scale+')');
 
-    console.log("SCALING to ", $(dancer['$node']).css('transform') );
   }
-
-
 
   // adjust every dancer's z-index upon instantiation
   function adjustDancersZindex(){
@@ -142,10 +190,6 @@ $(document).ready(function() {
   }
 
 
-
-
-  // Added this portion for lineUp effects -------------------------------
-
   /*
       have a limit to divide in lines after x amount of dancers
   */
@@ -156,9 +200,15 @@ $(document).ready(function() {
 
     // Iterate through window.dancers array
     for (var idx = 0; idx < window.dancers.length; idx++) {
+      
       var currentDancer = window.dancers[idx]['$node'];
+
+      scaleDancer(window.dancers[idx], 450);
+
       var constructorName = window.dancers[idx].constructor.name;
-      console.log('!!!!!!!', constructorName);
+
+      // console.log('!!!!!!!', constructorName);
+
       if (constructorName === 'Carlton') {
         Carlton.prototype.lineUp.call(this, currentDancer, carltonMove);
         carltonMove += 75;

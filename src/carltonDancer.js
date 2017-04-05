@@ -4,13 +4,19 @@
 
 var Carlton = function(top, left, timeBetweenSteps) {
 
+  
+  
   makeDancer.call( this, top, left, timeBetweenSteps);
+
+
   this.step(timeBetweenSteps);
 
   var carlton = this.$node;
 
   carlton.addClass('carlton');
+  
 
+  console.log(carlton);
   // get it's img tag, add data src prop to correct img url
 
   var img = carlton.find('.dancer-image');
@@ -40,8 +46,9 @@ var Carlton = function(top, left, timeBetweenSteps) {
 
   // Added this method for lineUp effects -------------------------------
   Carlton.prototype.lineUp = function(obj, move) {
-    console.log(obj)
-    $(obj).animate( { top: 450, left: move } );
+    // console.log(obj)
+    // scaleDancer(obj, 450);
+    $(obj).animate( { top: 400, left: move } );
     // setInterval(function() {
     //   $(obj).animate( { zoom: '300%', top: 75}, "slow" );
     // }, 5000);

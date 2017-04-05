@@ -1,9 +1,10 @@
 // Creates and returns a new dancer object that can step
 var makeDancer = function(top, left, timeBetweenSteps) {
-
   // this.$node = $('<span class="dancer"></span>');
-  this.$node = $('<div class="dancer"> <div class="targetArea" onmouseover="carltonHover(this)"></div> <img class="dancer-image"> </div>');
+  this.$node = $('<div class="dancer" > <div class="targetArea"></div> <img class="dancer-image"> </div>');
   this.setPosition(top, left);  
+
+ 
 };
 
   makeDancer.prototype.step = function(time) {
