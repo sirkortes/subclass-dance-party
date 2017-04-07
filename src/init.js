@@ -82,45 +82,21 @@ $(document).ready(function() {
 
   });
 
-$(this).on('mouseover', '.targetArea', function(event){
 
-        // event.stopPropagation();
+$(this).on('mouseover', '.carlton', function(event){
 
-        var dancer = $(this).parent(".carlton")[0];
-
-        
-        console.log("event",event);
-        console.log("this",this);
-        console.log("dancer",dancer);
-        // console.log( ($(dancer).css('top')+50) )+
-        
-        $(dancer).css('top', dancer.css('top')-100 );
+    var dancer = $(this)[0];
+    $(dancer).animate({ 'margin-top': '-80px'},80, "linear", function(){
+      $(dancer).animate({'margin-top': '0px'}), 150, "linear";
     });
+});
 
-
-// $(this).on('mouseenter', function(e){
-//   console.log("e:",e);
-// });
-  
-// // $(document).on(events, selector, data, handler)
-// $(document).on('hover', '.targetArea', function(event){
-//   alert("BOOYA");
-// });
-
-
-// $(this).on('mouseover', '.targetArea', function(event){
 
 
   
 
   function scaleDancer(dancer,top){
 
-    /*
-            min top of 300, sets a min scale of scale of .7, 
-              adjust top to 340!
-
-            max top of 500, sets a max scale of 1, 
-    */
 
     var maxTop = 500;
     var scale = 1 - ( (maxTop - top)/500 );
@@ -132,9 +108,9 @@ $(this).on('mouseover', '.targetArea', function(event){
   function adjustDancersZindex(){
       var dancers = window.dancers;
       // always adjust our positions
-      dancers.sort(zort);
+      dancers.sort(zort).reverse();
       dancers.forEach(function(dancer,index){
-        $(dancer['$node']).css('z-index',0-index);
+        $(dancer['$node']).css('z-index',0+index);
       });
   }
 
